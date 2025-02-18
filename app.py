@@ -13,7 +13,7 @@ def analyze():
     if not handle or not email:
         return jsonify({"error": "Handle and email are required"}), 400
 
-    # Placeholder analysis logic
+    # Placeholder response for now
     result = {
         "platform": "Instagram" if "instagram" in handle else "Website",
         "summary": "Your engagement rate is good, but you should post more frequently!",
@@ -22,5 +22,6 @@ def analyze():
     
     return jsonify(result)
 
+# Run the app
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Ensure the correct host and port
+    app.run(host="0.0.0.0", port=10000)  # Ensure it's running on all interfaces
