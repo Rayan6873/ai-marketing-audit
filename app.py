@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS  # Ensure this is included
 
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Requests for Wix Integration
+CORS(app)  # Enables CORS for frontend integration
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
@@ -23,4 +23,4 @@ def analyze():
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Allow running on all interfaces
+    app.run(host="0.0.0.0", port=10000)  # Ensure the correct host and port
