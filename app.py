@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Ensure this is included
+from flask_cors import CORS
 
+# Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enables CORS for frontend integration
+CORS(app)  # Enable CORS for frontend requests
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
@@ -13,15 +14,15 @@ def analyze():
     if not handle or not email:
         return jsonify({"error": "Handle and email are required"}), 400
 
-    # Placeholder response for now
+    # Placeholder response
     result = {
         "platform": "Instagram" if "instagram" in handle else "Website",
         "summary": "Your engagement rate is good, but you should post more frequently!",
         "details": {"suggestion": "Increase posting frequency and use relevant hashtags."}
     }
-    
+
     return jsonify(result)
 
-# Run the app
+# Make sure Flask runs correctly
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Ensure it's running on all interfaces
+    app.run(host="0.0.0.0", port=10000, debug=True)
