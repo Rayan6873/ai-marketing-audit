@@ -3,7 +3,7 @@ from flask_cors import CORS
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend requests
+CORS(app)  # Enable CORS
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
@@ -23,6 +23,9 @@ def analyze():
 
     return jsonify(result)
 
-# Make sure Flask runs correctly
+# Ensure Flask runs correctly
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000, debug=True)
+
+# Define a Gunicorn entry point explicitly
+gunicorn_app = app
